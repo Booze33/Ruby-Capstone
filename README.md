@@ -2,7 +2,7 @@
 
 <a name="readme-top"></a>
 <div align="center">
-  <h3><b>TDD Project</b></h3>
+  <h3><b>Ruby Capstone</b></h3>
 </div>
 
 # 📗 Table of Contents
