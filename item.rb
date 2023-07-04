@@ -3,7 +3,7 @@ require 'date'
 class Item
   def initialize(publish_date)
     @id = Random.rand(1..1000)
-    @publish_date = publish_date #  user should enter a valid date
+    @publish_date = publish_date #  user should enter a valid date [year, month, day]
     @archived = false
   end
 
