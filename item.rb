@@ -8,4 +8,8 @@ class Item
     def move_to_archive
         @archived = true
     end
+
+    def can_be_archived?
+        @archived == false
+    end
 end
