@@ -15,4 +15,12 @@ class Item
             false
         end
     end
+
+    def move_to_archive
+        if can_be_archive == true
+            @archived = true
+        else
+            puts 'Item cannot be archived'
+        end
+    end
 end
