@@ -1,15 +1,18 @@
+require 'date'
+
 class Item
-    def initialize
+    def initialize(publish_date)
         @id = Random.rand(1..1000)
-        @publish_date = publish_date
+        @publish_date = publish_date #  user should enter a valid date
         @archived = false
     end
 
-    def move_to_archive
-        @archived = true
-    end
-
-    def can_be_archived?
-        @archived == false
+    def can_be_archive
+        date = Date.new(@publish_date)
+        if (Date.today - date).to_i > 3650
+            true
+        else
+            false
+        end
     end
 end
