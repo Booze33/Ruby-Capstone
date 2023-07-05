@@ -1,4 +1,4 @@
-require_relative 'Method/music_albums_options'
+require_relative 'Options/music_albums_options'
 
 class App
   def initialize(main)
