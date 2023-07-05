@@ -7,6 +7,7 @@ class App
     @main = main
     @storage = Storage.new
     @book_options = BookOptions.new(@storage)
+    @labels = @storage.load_labels
   end
 
   def list_books
@@ -26,6 +27,7 @@ class App
 
   def add_book
     @book_options.add_book
+    @book_options.books.last.update_labels(@labels)
   end
 
   def quit

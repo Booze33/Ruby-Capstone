@@ -1,5 +1,10 @@
 [
-  "#<Book:0x000002402766a788>",
-  "#<Book:0x000002402766a698>",
-  "#<Book:0x000002402766a648>"
+  {
+    "title": "Call Of Duty",
+    "published_date": "2015-08-09",
+    "publisher": "activision",
+    "color": "blue",
+    "cover_state": true,
+    "archived": false
+  }
 ]

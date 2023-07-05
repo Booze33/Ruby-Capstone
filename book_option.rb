@@ -4,6 +4,7 @@ class BookOptions
   def initialize(storage)
     @storage = storage
     @books = @storage.load_books
+    @labels = @storage.load_labels || []
   end
 
   def add_book
@@ -26,6 +27,12 @@ class BookOptions
     @books << book
 
     @storage.save_books(@books)
+
+    label = Label.new(Random.rand(1..1000), title, color)
+    label.add_item(book)
+    @labels << label
+
+    @storage.save_labels(@labels)
 
     puts 'Book Added Successfully!'
   end

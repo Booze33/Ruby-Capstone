@@ -3,7 +3,7 @@ require 'json'
 require 'date'
 
 class Book < Item
-  attr_accessor :publisher, :cover_state, :title, :color
+  attr_accessor :publisher, :cover_state, :title, :color, :labels
 
   def initialize(published_date, title, publisher, color, cover_state)
     super(published_date)
@@ -12,10 +12,17 @@ class Book < Item
     @color = color
     @cover_state = cover_state
     @can_be_archived = can_be_archived?
+    @labels = []
   end
 
   def can_be_archived?
     return false if @published_date.nil?
     (Time.now.year - @published_date.year) > 10
+  end
+
+  def update_labels(labels)
+    labels.each do |label|
+      label.add_item(self) if label.title == @title
+    end
   end
 end
