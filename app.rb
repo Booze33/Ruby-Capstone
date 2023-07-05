@@ -4,7 +4,7 @@ class App
   end
 
   def list_books
-    puts 'Listing all books'
+    puts 'Listing all the books'
     @main.display_menu
   end
 end
