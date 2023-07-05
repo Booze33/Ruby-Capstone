@@ -13,13 +13,13 @@ class Item
     @archived = false
   end
 
-  def can_be_archive
+  def can_be_archived?
     date = Date.new(@publish_date.to_i)
     (Date.today - date).to_i > 3650
   end
 
   def move_to_archive
-    if can_be_archive == true
+    if can_be_archived? == true
       @archived = true
     else
       puts 'Item cannot be archived'
@@ -28,9 +28,7 @@ class Item
 end
 
 
-item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2013-01-30')
+item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2020-01-30')
 
-item.can_be_archive
+item.can_be_archived?
 item.move_to_archive
-
-p item
