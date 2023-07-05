@@ -2,11 +2,22 @@ require_relative '../Method/genre'
 require_relative '../Method/music_album'
 
 class MusicAlbumOptions
-  attr_accessor :music_albums
+  attr_accessor :music_albums, :genres
 
   def initialize
     @music_albums = []
     @genres = []
+  end
+
+  def list_music_albums
+    if @music_albums.empty?
+      puts 'No music albums added yet'
+    else
+      puts 'Listing all music albums'  
+      @music_albums.each do |album|
+        puts album
+      end
+    end
   end
 
   def add_music_album
