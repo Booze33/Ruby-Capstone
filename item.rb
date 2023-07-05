@@ -27,8 +27,7 @@ class Item
   end
 end
 
+# item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2020-01-30')
 
-item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2020-01-30')
-
-item.can_be_archived?
-item.move_to_archive
+# item.can_be_archived?
+# item.move_to_archive

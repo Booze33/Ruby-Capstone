@@ -13,9 +13,9 @@ class MusicAlbum < Item
   end
 end
 
-album = MusicAlbum.new('Metal', 'Acdc', 'From a friend', 'Gift', '2010-01-30', true)
+# album = MusicAlbum.new('Metal', 'Acdc', 'From a friend', 'Gift', '2010-01-30', true)
 
-album.can_be_archived?
-album.move_to_archive
+# album.can_be_archived?
+# album.move_to_archive
 
-p album
+# p album
