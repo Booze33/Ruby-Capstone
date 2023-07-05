@@ -1,15 +1,21 @@
 require_relative '../item'
 
-#  class properties: on_spotify:boolean
 class MusicAlbum < Item
-  arrt_accessor :on_spotify
+  attr_accessor :on_spotify
 
-  def initialize(publish_date, on_spotify)
-    super(publish_date)
+  def initialize(genre, author, source, label, publish_date, on_spotify) # rubocop:disable Metrics/ParameterLists
+    super(genre, author, source, label, publish_date)
     @on_spotify = on_spotify
   end
 
   def can_be_archived?
-    super && @on_spotify
+    super and @on_spotify
   end
 end
+
+# album = MusicAlbum.new('Metal', 'Acdc', 'From a friend', 'Gift', '2010-01-30', true)
+
+# album.can_be_archived?
+# album.move_to_archive
+
+# p album
