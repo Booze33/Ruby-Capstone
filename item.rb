@@ -1,7 +1,7 @@
 require 'date'
 
 class Item
-  attr_accesor :id, genre, author, source, label, publish_date, archived
+  attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
   def initialize(genre, author, source, label, publish_date)
     @id = Random.rand(1..1000)
@@ -14,7 +14,7 @@ class Item
   end
 
   def can_be_archive
-    date = Date.new(@publish_date)
+    date = Date.new(@publish_date.to_i)
     (Date.today - date).to_i > 3650
   end
 
@@ -26,3 +26,11 @@ class Item
     end
   end
 end
+
+
+item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2013-01-30')
+
+item.can_be_archive
+item.move_to_archive
+
+p item
