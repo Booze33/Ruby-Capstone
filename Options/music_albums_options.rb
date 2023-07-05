@@ -13,9 +13,20 @@ class MusicAlbumOptions
     if @music_albums.empty?
       puts 'No music albums added yet'
     else
-      puts 'Listing all music albums'  
+      puts 'Listing all music albums'
       @music_albums.each do |album|
-        puts album
+        puts "Author: #{album.genre.name}"
+      end
+    end
+  end
+
+  def list_genres
+    if @genres.empty?
+      puts 'No genres added yet'
+    else
+      puts 'Listing all genres'
+      @genres.each do |genre|
+        puts genre.name
       end
     end
   end
@@ -44,10 +55,7 @@ class MusicAlbumOptions
     album_on_spotify = album_on_spotify.upcase == 'Y'
     album = MusicAlbum.new(album_date_of_publishing, album_on_spotify)
     puts 'Album added!'
-    album_genre.add_item(album) #  here we can add all the atributes
-    puts album.genre.name
+    album_genre.add_item(album) #  here we can add all the atributes of the album
     @music_albums << album
-    puts @music_albums
-    puts @genres
   end
 end

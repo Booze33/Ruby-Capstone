@@ -16,6 +16,11 @@ class App
     @main.display_menu
   end
 
+  def list_genres
+    @music_albums.list_genres
+    @main.display_menu
+  end
+
   def add_music_album
     @music_albums.add_music_album
     @main.display_menu
