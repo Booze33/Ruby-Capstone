@@ -22,15 +22,6 @@ class Item
       puts 'Item cannot be archived'
     end
   end
-
-  def genre=(genre)
-    if genre.is_a?(Genre)
-      @genre = genre
-      genre.items << self
-    else
-      puts 'Invalid genre'
-    end
-  end
 end
 
 # item = Item.new('2020-01-30')

@@ -15,4 +15,8 @@ class App
     @music_albums.add_music_album
     @main.display_menu
   end
+
+  def quit
+    puts 'Bye!'
+  end
 end
