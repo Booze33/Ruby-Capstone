@@ -1,19 +1,20 @@
 require 'date'
 
 class Item
-  def initialize(publish_date)
+  attr_accessor :published_date, :archived
+
+  def initialize(published_date)
     @id = Random.rand(1..1000)
-    @publish_date = publish_date #  user should enter a valid date [year, month, day]
+    @published_date = published_date #  user should enter a valid date [year, month, day]
     @archived = false
   end
 
-  def can_be_archive
-    date = Date.new(@publish_date)
-    (Date.today - date).to_i > 3650
+  def can_be_archived?
+    (Time.now.year - @published_date.year) > 10
   end
 
   def move_to_archive
-    if can_be_archive == true
+    if can_be_archived?
       @archived = true
     else
       puts 'Item cannot be archived'
