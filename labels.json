@@ -3,5 +3,10 @@
     "id": 987,
     "title": "Call Of Duty",
     "color": "blue"
+  },
+  {
+    "id": 630,
+    "title": "Home alone",
+    "color": "red"
   }
 ]

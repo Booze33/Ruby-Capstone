@@ -6,5 +6,13 @@
     "color": "blue",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "Home alone",
+    "published_date": "1999-12-25",
+    "publisher": "kevin",
+    "color": "red",
+    "cover_state": false,
+    "archived": false
   }
 ]
