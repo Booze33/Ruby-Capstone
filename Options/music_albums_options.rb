@@ -6,6 +6,7 @@ class MusicAlbumOptions
 
   def initialize
     @music_albums = []
+    @genres = []
   end
 
   def add_music_album
@@ -13,6 +14,7 @@ class MusicAlbumOptions
     puts 'Please enter the gender of the album'
     album_genre_name = gets.chomp
     album_genre = Genre.new(album_genre_name)
+    @genres << album_genre
     puts 'Please enter the author of the album'
     puts 'Author first name:'
     gets.chomp
@@ -35,5 +37,6 @@ class MusicAlbumOptions
     puts album.genre.name
     @music_albums << album
     puts @music_albums
+    puts @genres
   end
 end
