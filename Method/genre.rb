@@ -9,7 +9,7 @@ class Genre
     @items = []
   end
 
-  def add_item(item)
+  def add_item(item) # item is an object of Item class
     @items.push(item)
     item.genre = self
   end
