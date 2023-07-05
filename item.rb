@@ -1,14 +1,11 @@
 require 'date'
+require_relative 'Method/genre'
 
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
-  def initialize(genre, author, source, label, publish_date)
+  def initialize(publish_date)
     @id = Random.rand(1..1000)
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
     @publish_date = publish_date #  user should enter a valid date [year, month, day]
     @archived = false
   end
@@ -27,7 +24,8 @@ class Item
   end
 end
 
-# item = Item.new('Rock', 'Acdc', 'From a friend', 'Gift', '2020-01-30')
+item = Item.new('2020-01-30')
 
-# item.can_be_archived?
-# item.move_to_archive
+item.author = 'John Doe'
+
+p item.author
