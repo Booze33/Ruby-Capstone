@@ -3,7 +3,7 @@ require_relative 'app'
 class Main
   def initialize
     @app = App.new(self)
-    puts 'Welcome to the Catalog App'
+    puts 'Welcome to the Ruby Catalog App'
     display_menu
   end
 
