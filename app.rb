@@ -1,9 +1,8 @@
 require_relative 'storage'
-require_relative './Options/book_option'
-require_relative './Method/label'
+require_relative 'Options/book_option'
+require_relative 'Method/label'
 require_relative 'Options/music_albums_options'
 require_relative 'Options/item_attributes_data'
-
 
 class App
   def initialize(main)
@@ -20,7 +19,7 @@ class App
   end
 
   def list_books
-    puts "List of Books:"
+    puts 'List of Books:'
     @book_options.books.each do |book|
       puts "Title: #{book.title}, Published Date: #{book.publish_date}, Archived: #{book.archived}"
     end
@@ -28,7 +27,7 @@ class App
 
   def list_labels
     labels = @storage.load_labels
-    puts "List of Labels:"
+    puts 'List of Labels:'
     labels.each do |label|
       puts "Title: #{label.title}, Color: #{label.color}"
     end

@@ -1,6 +1,6 @@
 require 'json'
-require_relative './Method/book'
-require_relative './Method/label'
+require_relative 'Method/book'
+require_relative 'Method/label'
 
 class Storage
   def save_books(books)
@@ -13,8 +13,8 @@ class Storage
         'cover_state' => book.cover_state,
         'archived' => book.archived
       }
-  end
-  File.open('books.json', 'w') do |file|
+    end
+    File.open('books.json', 'w') do |file|
     file.write(JSON.pretty_generate(book_data))
     end
   end

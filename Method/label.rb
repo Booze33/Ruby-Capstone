@@ -16,4 +16,3 @@ class Label
     item.labels << self
   end
 end
-
