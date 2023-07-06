@@ -32,13 +32,12 @@ class Storage
   def load_books
     if File.exist?('books.json')
       json_data = JSON.parse(File.read('books.json'))
-      books = json_data.map do |data|
+      json_data.map do |data|
         publish_date = data['publish_date'] ? Date.parse(data['publish_date']) : nil
         book = Book.new(publish_date, data['title'], data['publisher'], data['color'], data['cover_state'])
         book.archived = data['archived']
         book
       end
-      books
     else
       []
     end
@@ -51,10 +50,9 @@ class Storage
         []
       else
         begin
-          labels = JSON.parse(json_data).map do |data|
+          JSON.parse(json_data).map do |data|
             Label.new(data['id'], data['title'], data['color'])
           end
-          labels
         rescue JSON::ParserError => e
           puts "Error parsing JSON data: #{e.message}"
           []
