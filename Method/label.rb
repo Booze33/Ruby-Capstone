@@ -2,7 +2,7 @@ require_relative '../item'
 require 'json'
 
 class Label
-  attr_reader :id, :title, :color, :items
+  attr_accessor :id, :title, :color, :items
 
   def initialize(id, title, color)
     @id = id
@@ -13,6 +13,6 @@ class Label
 
   def add_item(item)
     @items << item
-    item.labels << self
+    item.label = self
   end
 end
