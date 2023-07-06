@@ -30,5 +30,6 @@ class App
 
   def quit
     puts 'Bye!'
+    @music_albums.save_music_albums
   end
 end

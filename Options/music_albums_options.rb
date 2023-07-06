@@ -1,5 +1,6 @@
 require_relative '../Method/genre'
 require_relative '../Method/music_album'
+require 'json'
 
 class MusicAlbumOptions
   attr_accessor :music_albums, :genres
@@ -57,5 +58,18 @@ class MusicAlbumOptions
     puts 'Album added!'
     album_genre.add_item(album) #  here we can add all the atributes of the album
     @music_albums << album
+  end
+
+  def save_music_albums
+    albums_data = []
+    @music_albums.each do |album|
+      albums_data.push(
+        publish_date: album.publish_date,
+        on_spotify: album.on_spotify,
+        genre: album.genre.name
+      )
+    end
+    p albums_data
+    File.write('Storage/music_albums.json', albums_data.to_json)
   end
 end
