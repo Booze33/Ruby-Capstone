@@ -22,5 +22,13 @@
     "color": "Green",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "Stan",
+    "publish_date": "1981-12-20",
+    "publisher": "Lee",
+    "color": "Grey",
+    "cover_state": false,
+    "archived": false
   }
 ]

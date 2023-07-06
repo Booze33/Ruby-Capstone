@@ -14,9 +14,7 @@ class Storage
         'archived' => book.archived
       }
     end
-    File.open('books.json', 'w') do |file|
-    file.write(JSON.pretty_generate(book_data))
-    end
+    File.write('books.json', JSON.pretty_generate(book_data))
   end
 
   def save_labels(labels)
@@ -28,9 +26,7 @@ class Storage
       }
     end
 
-    File.open('labels.json', 'w') do |file|
-      file.write(JSON.pretty_generate(label_data))
-    end
+    File.write('labels.json', JSON.pretty_generate(label_data))
   end
 
   def load_books
