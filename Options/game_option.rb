@@ -19,7 +19,7 @@ def add_game
   last_played_date = gets.chomp
   print 'Please enter game_published_date (DD/MM/YYYY): '
   released_date = gets.chomp
-  game = Game.new(multiplayer_game, last_played_date, released_date, archived: false)
+  game = Game.new(multiplayer_game, last_played_date, released_date)
   author = Author.new(first_name, last_name)
   author.add_item(game)
   @games << { 'id' => game.id, 'multiplayer_game' => game.multiplayer, 'last_played_date' => game.last_played_at,

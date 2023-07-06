@@ -19,7 +19,7 @@ class MusicAlbumOptions
     else
       puts 'Listing all music albums'
       @music_albums.each do |album|
-        puts "Name: #{album.label.title} / Author: Not set yet / Genre #{album.genre.name}
+        puts "Name: #{album.label.title} / Genre #{album.genre.name}
         Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
       end
     end
@@ -42,13 +42,7 @@ class MusicAlbumOptions
     album_genre_name = gets.chomp
     album_genre = Genre.new(album_genre_name)
     @genres << album_genre
-    puts 'Please enter the author of the album'
-    puts 'Author first name:'
-    gets.chomp
-    puts 'Author last name:'
-    gets.chomp
-    # add variable before gets.chomp to get data / album_author = Author.new(album_author_name, album_author_last_name)
-    puts 'Enter the label title'
+    puts 'Enter the album title'
     label_title = gets.chomp
     puts 'Enter the label color'
     label_color = gets.chomp
