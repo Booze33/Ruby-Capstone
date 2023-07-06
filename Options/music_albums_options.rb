@@ -43,12 +43,12 @@ class MusicAlbumOptions
     gets.chomp
     puts 'Author last name:'
     gets.chomp
-    # album_author = Author.new(album_author_name, album_author_last_name)
+    # add variable before gets.chomp to get data / album_author = Author.new(album_author_name, album_author_last_name)
     puts 'Enter the label title'
     gets.chomp
     puts 'Enter the label color'
     gets.chomp
-    # album_source = Source.new(album_label_title, album_label_color)
+    # add variable before gets.chomp to get data / album_source = Source.new(album_label_title, album_label_color)
     puts 'Date of publishing: year-month-day [2020-01-01]'
     album_date_of_publishing = gets.chomp
     puts 'Is the album on Spotify? [y/n]'
@@ -71,5 +71,18 @@ class MusicAlbumOptions
     end
     p albums_data
     File.write('Storage/music_albums.json', albums_data.to_json)
+  end
+
+  def load_music_albums
+    return unless File.exist?('Storage/music_albums.json')
+
+    albums_data = JSON.parse(File.read('Storage/music_albums.json'))
+    albums_data.each do |album_data|
+      album_genre = Genre.new(album_data['genre'])
+      album = MusicAlbum.new(album_data['publish_date'], album_data['on_spotify'])
+      album_genre.add_item(album)
+      @music_albums << album
+      @genres << album_genre
+    end
   end
 end

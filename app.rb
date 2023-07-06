@@ -8,6 +8,10 @@ class App
     @music_albums = MusicAlbumOptions.new(@item_attributes_data)
   end
 
+  def load_music_albums
+    @music_albums.load_music_albums
+  end
+
   def list_books
     puts 'Listing all books'
     @main.display_menu
