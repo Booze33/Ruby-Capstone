@@ -3,13 +3,13 @@ require_relative '../Method/book'
 require 'date'
 
 RSpec.describe Book do
-  describe "#initialize" do
-    it "initializes the book object with the given attributes" do
+  describe '#initialize' do
+    it 'initializes the book object with the given attributes' do
       publish_date = Date.new(2000, 1, 1)
-      title = "Test Book"
-      publisher = "Test Publisher"
-      color = "blue"
-      cover_state = "good"
+      title = 'Test Book'
+      publisher = 'Test Publisher'
+      color = 'blue'
+      cover_state = 'good'
 
       book = Book.new(publish_date, title, publisher, color, cover_state)
 
@@ -24,20 +24,20 @@ RSpec.describe Book do
 end
 
 RSpec.describe Book do
-  describe "#can_be_archived?" do
-    context "when the publish date is more than 10 years ago" do
-      it "returns true" do
+  describe '#can_be_archived?' do
+    context 'when the publish date is more than 10 years ago' do
+      it 'returns true' do
         publish_date = Date.new(2010, 1, 1)
-        book = Book.new(publish_date, "Test Book", "Test Publisher", "blue", "good")
+        book = Book.new(publish_date, 'Test Book', 'Test Publisher', 'blue', 'good')
 
         expect(book.can_be_archived?).to be true
       end
     end
 
-    context "when the publish date is less than 10 years ago" do
-      it "returns false" do
+    context 'when the publish date is less than 10 years ago' do
+      it 'returns false' do
         publish_date = Date.today
-        book = Book.new(publish_date, "Test Book", "Test Publisher", "blue", "good")
+        book = Book.new(publish_date, 'Test Book', 'Test Publisher', 'blue', 'good')
 
         expect(book.can_be_archived?).to be false
       end
