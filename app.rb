@@ -1,9 +1,11 @@
 require_relative 'Options/music_albums_options'
+require_relative 'Options/item_attributes_data'
 
 class App
   def initialize(main)
     @main = main
-    @music_albums = MusicAlbumOptions.new
+    @item_attributes_data = ItemAttributesData.new
+    @music_albums = MusicAlbumOptions.new(@item_attributes_data)
   end
 
   def list_books

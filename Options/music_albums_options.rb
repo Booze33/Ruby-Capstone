@@ -4,9 +4,9 @@ require_relative '../Method/music_album'
 class MusicAlbumOptions
   attr_accessor :music_albums, :genres
 
-  def initialize
+  def initialize(item_attributes_data)
     @music_albums = []
-    @genres = []
+    @genres = item_attributes_data.genres
   end
 
   def list_music_albums

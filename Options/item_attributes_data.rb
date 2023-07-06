@@ -4,8 +4,4 @@ class ItemAttributesData
   def initialize
     @genres = []
   end
-
-  def add_atributes(genre)
-    @genres << genre
-  end
 end
