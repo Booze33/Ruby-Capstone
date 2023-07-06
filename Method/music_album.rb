@@ -14,13 +14,3 @@ class MusicAlbum < Item
     @archived = true
   end
 end
-
-# album1 = MusicAlbum.new('2010-01-30', true)
-# albumgemre = Genre.new('Comedy')
-# album1gemre.add_item(album1)
-
-# album2 = MusicAlbum.new('2010-01-30', true)
-# album2gemre = Genre.new('Comedy')
-# album2gemre.add_item(album2)
-
-# p album1.genre.name

@@ -23,11 +23,3 @@ class Item
     end
   end
 end
-
-# item = Item.new('2020-01-30')
-# genre = Genre.new('Comedy')
-
-# item.genre = genre
-
-# p item.genre.name
-# p genre.items
