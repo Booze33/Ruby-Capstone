@@ -1,97 +1,9 @@
 [
   {
-    "title": "Call Of Duty",
-    "publish_date": "2015-08-09",
-    "publisher": "activision",
-    "color": "blue",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "Home alone",
-    "publish_date": "1999-12-25",
-    "publisher": "kevin",
-    "color": "red",
-    "cover_state": false,
-    "archived": false
-  },
-  {
-    "title": "Ridge saw",
-    "publish_date": "2020-11-10",
-    "publisher": "Garfield",
-    "color": "Green",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "Stan",
-    "publish_date": "1981-12-20",
-    "publisher": "Lee",
-    "color": "Grey",
-    "cover_state": false,
-    "archived": false
-  },
-  {
-    "title": "Stark",
-    "publish_date": "2020-03-23",
-    "publisher": "Tony",
-    "color": "Red",
-    "cover_state": false,
-    "archived": false
-  },
-  {
-    "title": "Jack ball",
-    "publish_date": "2015-10-23",
-    "publisher": "Robin",
-    "color": "red",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "Mikealngelo",
+    "title": "Tunel",
     "publish_date": "2020-10-10",
-    "publisher": "Paidos",
-    "color": "Black",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "Ada",
-    "publish_date": "2020-10-10",
-    "publisher": "Paitres",
-    "color": "blue",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "testBook",
-    "publish_date": "2020-10-10",
-    "publisher": "Paicuatro",
+    "publisher": "paidos",
     "color": "black",
-    "cover_state": false,
-    "archived": false
-  },
-  {
-    "title": "Test1",
-    "publish_date": "2020-10-10",
-    "publisher": "Paicinco",
-    "color": "white",
-    "cover_state": false,
-    "archived": false
-  },
-  {
-    "title": "gsgsgsgdf",
-    "publish_date": "2020-10-10",
-    "publisher": "pai20",
-    "color": "magenye",
-    "cover_state": true,
-    "archived": false
-  },
-  {
-    "title": "My book",
-    "publish_date": "2020-10-10",
-    "publisher": "Paifive",
-    "color": "Yellow",
     "cover_state": true,
     "archived": false
   }
