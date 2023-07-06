@@ -5,7 +5,8 @@
     "publisher": "paidos",
     "color": "black",
     "cover_state": true,
-    "archived": false
+    "archived": false,
+    "genre": "N/A"
   },
   {
     "title": "Book Test",
@@ -13,6 +14,16 @@
     "publisher": "Paifive",
     "color": "Blue",
     "cover_state": true,
-    "archived": false
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Java",
+    "publish_date": "2001-12-11",
+    "publisher": "Hbert",
+    "color": "black",
+    "cover_state": false,
+    "archived": false,
+    "genre": "N/A"
   }
 ]
