@@ -6,5 +6,13 @@
     "color": "Black",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "Boy ALone",
+    "publish_date": "2022-08-19",
+    "publisher": "Lay",
+    "color": "purple",
+    "cover_state": true,
+    "archived": false
   }
 ]
