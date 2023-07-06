@@ -6,5 +6,13 @@
     "color": "black",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "Book Test",
+    "publish_date": "2020-10-10",
+    "publisher": "Paifive",
+    "color": "Blue",
+    "cover_state": true,
+    "archived": false
   }
 ]
