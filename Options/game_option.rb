@@ -1,70 +1,13 @@
-require_relative 'storage'
-require_relative 'Options/book_option'
-require_relative 'Method/label'
-require_relative 'Options/music_albums_options'
-require_relative 'Options/item_attributes_data'
-require_relative 'Options/game_option'
+require_relative '../Method/game'
+require_relative '../Method/author'
 
-class App
-  def initialize(main)
-    @main = main
-    @storage = Storage.new
-    @book_options = BookOptions.new(@storage)
-    @labels = @storage.load_labels
-    @item_attributes_data = ItemAttributesData.new
-    @music_albums = MusicAlbumOptions.new(@item_attributes_data)
+def initialize()
     @games = []
     @authors = []
     retrieve_data
-  end
+end
 
-  def load_music_albums
-    @music_albums.load_music_albums
-  end
-
-  def list_books
-    puts 'List of Books:'
-    @book_options.books.each do |book|
-      puts "Title: #{book.title}, Published Date: #{book.publish_date}, Archived: #{book.archived}"
-    end
-  end
-
-  def list_labels
-    labels = @storage.load_labels
-    puts 'List of Labels:'
-    labels.each do |label|
-      puts "Title: #{label.title}, Color: #{label.color}"
-    end
-  end
-
-  def add_book
-    @book_options.add_book
-    @book_options.books.last.update_labels(@labels)
-  end
-
-  def list_music_albums
-    @music_albums.list_music_albums
-    @main.display_menu
-  end
-
-  def list_genres
-    @music_albums.list_genres
-    @main.display_menu
-  end
-
-  def add_music_album
-    @music_albums.add_music_album
-    @main.display_menu
-  end
-
-  def quit
-    puts 'Bye!'
-    @music_albums.save_music_albums
-    @storage.save_books(@book_options.books)
-    exit
-  end
-
-  def add_game
+def add_game
     puts ''
     print 'Please enter author\'s first_name: '
     first_name = gets.chomp
@@ -85,9 +28,9 @@ class App
     puts "\nSuccessfully added new game"
     preserve_game(@games)
     preserve_author(@authors)
-  end
+end
 
-  def list_games
+  def display_games
     puts ''
     if @games.empty?
       puts 'No record for game found'
@@ -106,7 +49,7 @@ class App
     retrieve_data
   end
 
-  def list_authors
+  def display_authors
     puts ''
     if @authors.empty?
       puts 'No record for authors found'
@@ -120,11 +63,11 @@ class App
   end
 
   def preserve_game(game)
-    File.write('Storage/game.json', JSON.generate(game))
+    File.write('data/game.json', JSON.generate(game))
   end
 
   def preserve_author(author)
-    File.write('Storage/author.json', JSON.generate(author))
+    File.write('data/author.json', JSON.generate(author))
   end
 
   def retrieve_data
@@ -133,15 +76,15 @@ class App
   end
 
   def retrieve_game
-    return unless File.exist?('Storage/game.json')
+    return unless File.exist?('data/game.json')
 
-    @games = File.empty?('./Storage/game.json') ? [] : JSON.parse(File.read('Storage/game.json'))
+    @games = File.empty?('./data/game.json') ? [] : JSON.parse(File.read('data/game.json'))
   end
 
   def retrieve_author
-    return unless File.exist?('Storage/author.json')
+    return unless File.exist?('data/author.json')
 
-    @authors = File.empty?('./Storage/author.json') ? [] : JSON.parse(File.read('Storage/author.json'))
+    @authors = File.empty?('./data/author.json') ? [] : JSON.parse(File.read('data/author.json'))
   end
 
   def to_json(param)
@@ -153,4 +96,3 @@ class App
       'archived' => param.archived
     }
   end
-end
