@@ -11,7 +11,7 @@ class App
     @book_options = BookOptions.new(@storage)
     @labels = @storage.load_labels
     @item_attributes_data = ItemAttributesData.new
-    @music_albums = MusicAlbumOptions.new(@item_attributes_data)
+    @music_albums = MusicAlbumOptions.new(@item_attributes_data, @storage)
   end
 
   def load_music_albums

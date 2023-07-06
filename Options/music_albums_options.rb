@@ -4,11 +4,13 @@ require_relative '../Method/label'
 require 'json'
 
 class MusicAlbumOptions
-  attr_accessor :music_albums, :genres
+  attr_accessor :music_albums, :genres, :labels
 
-  def initialize(item_attributes_data)
+  def initialize(item_attributes_data, storage)
     @music_albums = []
     @genres = item_attributes_data.genres
+    @storage = storage
+    @labels = storage.load_labels || []
   end
 
   def list_music_albums
@@ -36,7 +38,7 @@ class MusicAlbumOptions
 
   def add_music_album
     puts 'Add a music album'
-    puts 'Please enter the gender of the album'
+    puts 'Please enter the genre of the album'
     album_genre_name = gets.chomp
     album_genre = Genre.new(album_genre_name)
     @genres << album_genre
@@ -51,6 +53,8 @@ class MusicAlbumOptions
     puts 'Enter the label color'
     label_color = gets.chomp
     album_label = Label.new(Random.rand(1..1000), label_title, label_color)
+    @labels << album_label
+    @storage.save_labels(@labels)
     puts 'Date of publishing: year-month-day [2020-01-01]'
     album_date_of_publishing = gets.chomp
     puts 'Is the album on Spotify? [y/n]'

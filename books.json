@@ -62,5 +62,37 @@
     "color": "blue",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "testBook",
+    "publish_date": "2020-10-10",
+    "publisher": "Paicuatro",
+    "color": "black",
+    "cover_state": false,
+    "archived": false
+  },
+  {
+    "title": "Test1",
+    "publish_date": "2020-10-10",
+    "publisher": "Paicinco",
+    "color": "white",
+    "cover_state": false,
+    "archived": false
+  },
+  {
+    "title": "gsgsgsgdf",
+    "publish_date": "2020-10-10",
+    "publisher": "pai20",
+    "color": "magenye",
+    "cover_state": true,
+    "archived": false
+  },
+  {
+    "title": "My book",
+    "publish_date": "2020-10-10",
+    "publisher": "Paifive",
+    "color": "Yellow",
+    "cover_state": true,
+    "archived": false
   }
 ]
