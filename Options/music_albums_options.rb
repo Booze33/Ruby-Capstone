@@ -1,5 +1,6 @@
 require_relative '../Method/genre'
 require_relative '../Method/music_album'
+require_relative '../Method/label'
 require 'json'
 
 class MusicAlbumOptions
@@ -16,7 +17,7 @@ class MusicAlbumOptions
     else
       puts 'Listing all music albums'
       @music_albums.each do |album|
-        puts "Name: Not set yet / Author: Not set yet / Genre #{album.genre.name}
+        puts "Name: #{album.label.title} / Author: Not set yet / Genre #{album.genre.name}
         Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
       end
     end
@@ -46,10 +47,10 @@ class MusicAlbumOptions
     gets.chomp
     # add variable before gets.chomp to get data / album_author = Author.new(album_author_name, album_author_last_name)
     puts 'Enter the label title'
-    gets.chomp
+    label_title = gets.chomp
     puts 'Enter the label color'
-    gets.chomp
-    # add variable before gets.chomp to get data / album_source = Source.new(album_label_title, album_label_color)
+    label_color = gets.chomp
+    album_label = Label.new(Random.rand(1..1000), label_title, label_color)
     puts 'Date of publishing: year-month-day [2020-01-01]'
     album_date_of_publishing = gets.chomp
     puts 'Is the album on Spotify? [y/n]'
@@ -57,7 +58,8 @@ class MusicAlbumOptions
     album_on_spotify = album_on_spotify.upcase == 'Y'
     album = MusicAlbum.new(album_date_of_publishing, album_on_spotify)
     puts 'Album added!'
-    album_genre.add_item(album) #  here we can add all the atributes of the album
+    album_genre.add_item(album)
+    album_label.add_item(album)
     @music_albums << album
   end
 
@@ -67,10 +69,11 @@ class MusicAlbumOptions
       albums_data.push(
         publish_date: album.publish_date,
         on_spotify: album.on_spotify,
-        genre: album.genre.name
+        genre: album.genre.name,
+        label_title: album.label.title,
+        label_color: album.label.color
       )
     end
-    p albums_data
     File.write('Storage/music_albums.json', albums_data.to_json)
   end
 
@@ -80,8 +83,10 @@ class MusicAlbumOptions
     albums_data = JSON.parse(File.read('Storage/music_albums.json'))
     albums_data.each do |album_data|
       album_genre = Genre.new(album_data['genre'])
+      album_label = Label.new(Random.rand(1..1000), album_data['label_title'], album_data['label_color'])
       album = MusicAlbum.new(album_data['publish_date'], album_data['on_spotify'])
       album_genre.add_item(album)
+      album_label.add_item(album)
       @music_albums << album
       @genres << album_genre
     end

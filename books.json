@@ -46,5 +46,21 @@
     "color": "red",
     "cover_state": true,
     "archived": false
+  },
+  {
+    "title": "Mikealngelo",
+    "publish_date": "2020-10-10",
+    "publisher": "Paidos",
+    "color": "Black",
+    "cover_state": true,
+    "archived": false
+  },
+  {
+    "title": "Ada",
+    "publish_date": "2020-10-10",
+    "publisher": "Paitres",
+    "color": "blue",
+    "cover_state": true,
+    "archived": false
   }
 ]
