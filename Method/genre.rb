@@ -1,5 +1,3 @@
-require_relative '../item'
-
 class Genre
   attr_accessor :id, :name, :items
 
@@ -10,7 +8,11 @@ class Genre
   end
 
   def add_item(item)
-    @items.push(item)
-    item.genre = self
+    if item.is_a?(Item)
+      @items << item
+      item.genre = self
+    else
+      puts 'Invalid item'
+    end
   end
 end
