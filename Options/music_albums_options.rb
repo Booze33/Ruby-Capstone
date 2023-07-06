@@ -16,7 +16,8 @@ class MusicAlbumOptions
     else
       puts 'Listing all music albums'
       @music_albums.each do |album|
-        puts "Name: Not set yet / Author: Not set yet / Genre #{album.genre.name} / Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
+        puts "Name: Not set yet / Author: Not set yet / Genre #{album.genre.name}
+        Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
       end
     end
   end
