@@ -26,15 +26,23 @@ CREATE TABLE genre (
   name varchar(50)
 );
 
-CREATE TABLE music_album (
-  id INT PRIMARY KEY,
-  genre varchar(50),
-  author_name varchar(50),
-  author_lastname varchar(50),
-  source_name varchar(50),
-  label_title varchar(50),
-  label_color varchar(50),
-  pushished_date DATE,
-  archived boolean,
-  on_spotity boolean
-)
+CREATE TABLE musicalbums(
+  id INT PRIMARY KEY, 
+  name VARCHAR(255), 
+  published_date DATE, 
+  on_spotify BOOLEAN, 
+  archived BOOLEAN, 
+  author_id INT REFERENCES authors(id), 
+  label_id INT REFERENCES labels(id), 
+  genre_id INT REFERENCES genres(id), 
+);
+
+CREATE TABLE items (
+    id INT PRIMARY KEY,
+    genre VARCHAR(255),
+    author VARCHAR(255),
+    source VARCHAR(255),
+    label VARCHAR(255),
+    publish_date DATE,
+    archived BOOLEAN
+);
