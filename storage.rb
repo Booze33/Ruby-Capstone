@@ -5,16 +5,18 @@ require_relative 'Method/label'
 class Storage
   def save_books(books)
     book_data = books.map do |book|
+      genre_name = book.genre ? book.genre.name : 'N/A'
       {
         'title' => book.title,
         'publish_date' => book.publish_date.to_s,
         'publisher' => book.publisher,
         'color' => book.color,
         'cover_state' => book.cover_state,
-        'archived' => book.archived
+        'archived' => book.archived,
+        'genre' => genre_name
       }
     end
-    File.write('books.json', JSON.pretty_generate(book_data))
+    File.write('Storage/books.json', JSON.pretty_generate(book_data))
   end
 
   def save_labels(labels)
@@ -26,12 +28,12 @@ class Storage
       }
     end
 
-    File.write('labels.json', JSON.pretty_generate(label_data))
+    File.write('Storage/labels.json', JSON.pretty_generate(label_data))
   end
 
   def load_books
-    if File.exist?('books.json')
-      json_data = JSON.parse(File.read('books.json'))
+    if File.exist?('Storage/books.json')
+      json_data = JSON.parse(File.read('Storage/books.json'))
       json_data.map do |data|
         publish_date = data['publish_date'] ? Date.parse(data['publish_date']) : nil
         book = Book.new(publish_date, data['title'], data['publisher'], data['color'], data['cover_state'])
@@ -44,8 +46,8 @@ class Storage
   end
 
   def load_labels
-    if File.exist?('labels.json')
-      json_data = File.read('labels.json')
+    if File.exist?('Storage/labels.json')
+      json_data = File.read('Storage/labels.json')
       if json_data.empty?
         []
       else
