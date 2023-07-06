@@ -5,7 +5,7 @@ require_relative 'Method/label'
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
-  def initialize(publish_date, archived: false)
+  def initialize(publish_date)
     @id = Random.rand(1..1000)
     @publish_date = publish_date #  user should enter a valid date [year, month, day]
     @archived = false
