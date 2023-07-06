@@ -1,3 +1,5 @@
+require_relative '../Method/genre.rb'
+
 class BookOptions
   attr_accessor :books
 
@@ -23,7 +25,11 @@ class BookOptions
     puts 'Enter Color:'
     color = gets.chomp
 
+    puts 'Enter Genre:'
+    genre = gets.chomp
+
     book = Book.new(publish_date, title, publisher, color, cover_state)
+    book.genre = Genre.new(genre)
     @books << book
 
     @storage.save_books(@books)

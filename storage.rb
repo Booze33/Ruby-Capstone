@@ -5,13 +5,15 @@ require_relative 'Method/label'
 class Storage
   def save_books(books)
     book_data = books.map do |book|
+      genre_name = book.genre ? book.genre.name : 'N/A'
       {
         'title' => book.title,
         'publish_date' => book.publish_date.to_s,
         'publisher' => book.publisher,
         'color' => book.color,
         'cover_state' => book.cover_state,
-        'archived' => book.archived
+        'archived' => book.archived,
+        'genre' => genre_name
       }
     end
     File.write('Storage/books.json', JSON.pretty_generate(book_data))

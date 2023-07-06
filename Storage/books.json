@@ -5,7 +5,8 @@
     "publisher": "Santan",
     "color": "Black",
     "cover_state": true,
-    "archived": false
+    "archived": false,
+    "genre": "N/A"
   },
   {
     "title": "Boy ALone",
@@ -13,6 +14,16 @@
     "publisher": "Lay",
     "color": "purple",
     "cover_state": true,
-    "archived": false
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Ruby",
+    "publish_date": "1998-12-25",
+    "publisher": "Masashi",
+    "color": "red",
+    "cover_state": false,
+    "archived": false,
+    "genre": "N/A"
   }
 ]
