@@ -1,4 +1,4 @@
-require_relative '../Method/music_album.rb'
+require_relative '../Method/music_album'
 require_relative '../item'
 require 'date'
 
@@ -11,7 +11,7 @@ describe MusicAlbum do
   describe '#can_be_archived?' do
     context 'when the item can be archived and is on Spotify' do
       it 'returns true and sets archived to true' do
-        allow_any_instance_of(Item).to receive(:can_be_archived?).and_return(true) # Stub the can_be_archived? method from Item class
+        allow_any_instance_of(Item).to receive(:can_be_archived?).and_return(true)
         expect(music_album.can_be_archived?).to eq(true)
         expect(music_album.archived).to eq(true) # Check if archived is set to true
       end
