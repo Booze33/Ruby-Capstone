@@ -1,9 +1,15 @@
+require_relative 'storage'
+require_relative 'Options/book_option'
+require_relative 'Method/label'
 require_relative 'Options/music_albums_options'
 require_relative 'Options/item_attributes_data'
 
 class App
   def initialize(main)
     @main = main
+    @storage = Storage.new
+    @book_options = BookOptions.new(@storage)
+    @labels = @storage.load_labels
     @item_attributes_data = ItemAttributesData.new
     @music_albums = MusicAlbumOptions.new(@item_attributes_data)
   end
@@ -13,8 +19,23 @@ class App
   end
 
   def list_books
-    puts 'Listing all books'
-    @main.display_menu
+    puts 'List of Books:'
+    @book_options.books.each do |book|
+      puts "Title: #{book.title}, Published Date: #{book.publish_date}, Archived: #{book.archived}"
+    end
+  end
+
+  def list_labels
+    labels = @storage.load_labels
+    puts 'List of Labels:'
+    labels.each do |label|
+      puts "Title: #{label.title}, Color: #{label.color}"
+    end
+  end
+
+  def add_book
+    @book_options.add_book
+    @book_options.books.last.update_labels(@labels)
   end
 
   def list_music_albums
@@ -35,5 +56,7 @@ class App
   def quit
     puts 'Bye!'
     @music_albums.save_music_albums
+    @storage.save_books(@book_options.books)
+    exit
   end
 end
