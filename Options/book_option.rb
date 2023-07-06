@@ -12,7 +12,7 @@ class BookOptions
     title = gets.chomp
 
     puts 'Enter Published Date (YYYY-MM-DD):'
-    published_date = Date.parse(gets.chomp)
+    publish_date = Date.parse(gets.chomp)
 
     puts 'Enter Cover State (good/bad):'
     cover_state = gets.chomp == 'good'
@@ -23,7 +23,7 @@ class BookOptions
     puts 'Enter Color:'
     color = gets.chomp
 
-    book = Book.new(published_date, title, publisher, color, cover_state)
+    book = Book.new(publish_date, title, publisher, color, cover_state)
     @books << book
 
     @storage.save_books(@books)

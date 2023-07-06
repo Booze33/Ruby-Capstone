@@ -5,8 +5,8 @@ require 'date'
 class Book < Item
   attr_accessor :publisher, :cover_state, :title, :color, :labels
 
-  def initialize(published_date, title, publisher, color, cover_state)
-    super(published_date)
+  def initialize(publish_date, title, publisher, color, cover_state)
+    super(publish_date)
     @title = title
     @publisher = publisher
     @color = color
@@ -16,8 +16,8 @@ class Book < Item
   end
 
   def can_be_archived?
-    return false if @published_date.nil?
-    (Time.now.year - @published_date.year) > 10
+    return false if @publish_date.nil?
+    (Time.now.year - @publish_date.year) > 10
   end
 
   def update_labels(labels)

@@ -1,7 +1,7 @@
 CREATE TABLE books (
   id INT PRIMARY KEY,
   title TEXT,
-  published_date DATE,
+  publish_date DATE,
   publisher TEXT,
   color TEXT,
   cover_state INT,

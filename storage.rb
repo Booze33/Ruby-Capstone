@@ -7,7 +7,7 @@ class Storage
     book_data = books.map do |book|
       {
         'title' => book.title,
-        'published_date' => book.published_date.to_s,
+        'publish_date' => book.publish_date.to_s,
         'publisher' => book.publisher,
         'color' => book.color,
         'cover_state' => book.cover_state,
@@ -37,8 +37,8 @@ class Storage
     if File.exist?('books.json')
       json_data = JSON.parse(File.read('books.json'))
       books = json_data.map do |data|
-        published_date = data['published_date'] ? Date.parse(data['published_date']) : nil
-        book = Book.new(published_date, data['title'], data['publisher'], data['color'], data['cover_state'])
+        publish_date = data['publish_date'] ? Date.parse(data['publish_date']) : nil
+        book = Book.new(publish_date, data['title'], data['publisher'], data['color'], data['cover_state'])
         book.archived = data['archived']
         book
       end

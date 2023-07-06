@@ -1,5 +1,5 @@
 require_relative 'storage'
-require_relative './book_option'
+require_relative './Options/book_option'
 require_relative './Method/label'
 require_relative 'Options/music_albums_options'
 require_relative 'Options/item_attributes_data'
@@ -22,7 +22,7 @@ class App
   def list_books
     puts "List of Books:"
     @book_options.books.each do |book|
-      puts "Title: #{book.title}, Published Date: #{book.published_date}, Archived: #{book.archived}"
+      puts "Title: #{book.title}, Published Date: #{book.publish_date}, Archived: #{book.archived}"
     end
   end
 
@@ -37,11 +37,6 @@ class App
   def add_book
     @book_options.add_book
     @book_options.books.last.update_labels(@labels)
-  end
-
-  def quit
-    @storage.save_books(@book_options.books)
-    exit
   end
 
   def list_music_albums
@@ -62,5 +57,7 @@ class App
   def quit
     puts 'Bye!'
     @music_albums.save_music_albums
+    @storage.save_books(@book_options.books)
+    exit
   end
 end
