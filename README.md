@@ -2,6 +2,8 @@
 
 <a name="readme-top"></a>
 <div align="center">
+    <img src="./code.png" alt="logo" width="700"  height="auto" />
+  <br/>
   <h3><b>Ruby Capstone</b></h3>
 </div>
 
@@ -25,7 +27,9 @@
 
 # 📖 TDD Project <a name="about-project">TDD Project</a>
 
-**Ruby-Capstone** In this project we implement a class with some methods, but do it by doing test-driven development (TDD).
+**Ruby-Capstone**
+
+In this project, We create a console app that will help user to keep a record of different types of things their own: books, music albums, and games. Everything will be based on a UML class diagram. The data is stored in JSON files / Also provides a SQL Database model. 
 
 ## 🛠 Built With <a name="built-with"></a>
 Ruby
@@ -34,15 +38,19 @@ Ruby
 <details>
 <summary>Backend</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">Ruby</a></li>
+    <li><a href="https://www.ruby-lang.org/es/">Ruby</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **Write unit tests using Rspec.**
-- **Understand an existing codebase in a way that allows for adding tests.**
-- **Write Rspec unit tests with mocks.**
+- **Classes requested on UML diagram had been created**
+- **Add new books.**
+- **Add new music albums.**
+- **Add new games.**
+- **Save records of authors, labels and genres**
+- **Preserve Data in JSON files**
+- **Rspec Unit Test"**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,8 +99,6 @@ rubocop
 
 ### Deployment
 
-You can deploy this project using:
-
 Not available at the moment.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -102,10 +108,10 @@ Not available at the moment.
 
 
 👤 **Nabeel Ahmed**
-
 - GitHub: [@Metaverse-Nabeel](https://github.com/Metaverse-Nabeel)
-- Twitter: [@twitterhandle](https://twitter.com/nabeelchauhan42)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nabeel129/)
+- LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
+- Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
+
 
 
 👤 **Santiago Munoz**
@@ -125,6 +131,7 @@ Not available at the moment.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
+- **Delete items**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
