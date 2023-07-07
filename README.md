@@ -74,10 +74,14 @@ In order to run this project you need:
 Run `gem install colorize`
 ### Install
 
-This project does not require additional dependencies, just Ruby interpreter. However, it uses RuboCop as a linter and you should set it up as well.
+This project does require additional dependencies. However, it uses RuboCop as a linter and you should set it up as well.
 
 ```sh
 bundle install
+```
+
+```sh
+gem install colorized
 ```
 
 ### Usage
