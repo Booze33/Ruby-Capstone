@@ -25,5 +25,77 @@
     "cover_state": false,
     "archived": false,
     "genre": "N/A"
+  },
+  {
+    "title": "Christian",
+    "publish_date": "2018-08-23",
+    "publisher": "Onoh",
+    "color": "Red",
+    "cover_state": true,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Tree hold",
+    "publish_date": "2001-01-23",
+    "publisher": "James",
+    "color": "Green",
+    "cover_state": false,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Hut ",
+    "publish_date": "2020-05-16",
+    "publisher": "Jack",
+    "color": "brown",
+    "cover_state": true,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "the treh",
+    "publish_date": "2003-11-09",
+    "publisher": "thomas",
+    "color": "black",
+    "cover_state": true,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Rio",
+    "publish_date": "2000-01-12",
+    "publisher": "De",
+    "color": "yellow",
+    "cover_state": false,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "rug",
+    "publish_date": "2000-10-10",
+    "publisher": "pub",
+    "color": "red",
+    "cover_state": true,
+    "archived": false,
+    "genre": "drama"
+  },
+  {
+    "title": "java",
+    "publish_date": "2001-02-23",
+    "publisher": "Mee",
+    "color": "white",
+    "cover_state": true,
+    "archived": false,
+    "genre": "Program"
+  },
+  {
+    "title": "red",
+    "publish_date": "2002-12-16",
+    "publisher": "Arrancar",
+    "color": "black",
+    "cover_state": true,
+    "archived": false,
+    "genre": "Game"
   }
 ]

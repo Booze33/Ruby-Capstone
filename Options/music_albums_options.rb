@@ -6,9 +6,9 @@ require 'json'
 class MusicAlbumOptions
   attr_accessor :music_albums, :genres, :labels
 
-  def initialize(item_attributes_data, storage)
+  def initialize(_item_attributes_data, storage, genres)
     @music_albums = []
-    @genres = item_attributes_data.genres
+    @genres = genres
     @storage = storage
     @labels = storage.load_labels || []
   end
@@ -40,7 +40,8 @@ class MusicAlbumOptions
     puts 'Add a music album'
     puts 'Please enter the genre of the album'
     album_genre_name = gets.chomp
-    album_genre = Genre.new(album_genre_name)
+    album_genre = @genres.find { |genre| genre.name == album_genre_name }
+    album_genre ||= Genre.new(album_genre_name)
     @genres << album_genre
     puts 'Enter the album title'
     label_title = gets.chomp
