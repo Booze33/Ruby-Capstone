@@ -1,4 +1,5 @@
 require_relative '../Method/game'
+require_relative '../Method/book'
 require_relative '../Method/author'
 
 def initialize()
@@ -81,10 +82,25 @@ def retrieve_game
   @games = File.empty?('./data/game.json') ? [] : JSON.parse(File.read('data/game.json'))
 end
 
-def retrieve_author
-  return unless File.exist?('data/author.json')
+def add_author(author)
+  authors_data = retrieve_authors
+  authors_data << {
+    'first_name' => author.first_name,
+    'last_name' => author.last_name
+  }
+  save_authors(authors_data)
+end
 
-  @authors = File.empty?('./data/author.json') ? [] : JSON.parse(File.read('data/author.json'))
+def retrieve_authors
+  if File.exist?('Storage/author.json')
+    author_data = JSON.parse(File.read('Storage/author.json'))
+  else
+    []
+  end
+end
+
+def save_authors(authors_data)
+  File.write('Storage/author.json', JSON.pretty_generate(authors_data))
 end
 
 def to_json(param)

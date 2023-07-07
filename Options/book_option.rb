@@ -1,4 +1,5 @@
 require_relative '../Method/genre'
+require_relative '../Method/author'
 
 class BookOptions
   attr_accessor :books
@@ -28,8 +29,17 @@ class BookOptions
     puts 'Enter Book Genre:'
     genre = gets.chomp
 
+    puts 'Enter Authors first name:'
+    first_name = gets.chomp
+
+    puts 'Enter Authors Last name:'
+    last_name = gets.chomp
+
     book = Book.new(publish_date, title, publisher, color, cover_state)
     book.genre = Genre.new(genre)
+    author = Author.new(first_name, last_name)
+    author.add_item(book)
+    add_author(author)
     @books << book
 
     @storage.save_books(@books)
