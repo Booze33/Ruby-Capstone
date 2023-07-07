@@ -16,16 +16,16 @@ class BookOptions
     puts 'Enter Published Date (YYYY-MM-DD):'
     publish_date = Date.parse(gets.chomp)
 
-    puts 'Enter Cover State (good/bad):'
-    cover_state = gets.chomp == 'good'
+    puts 'Enter Cover State (Good/Bad):'
+    cover_state = gets.chomp
 
-    puts 'Enter Publisher:'
+    puts 'Enter Book Publisher:'
     publisher = gets.chomp
 
-    puts 'Enter Color:'
+    puts 'Enter Book Color:'
     color = gets.chomp
 
-    puts 'Enter Genre:'
+    puts 'Enter Book Genre:'
     genre = gets.chomp
 
     book = Book.new(publish_date, title, publisher, color, cover_state)

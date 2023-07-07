@@ -4,7 +4,7 @@
     "publish_date": "2020-10-10",
     "publisher": "paidos",
     "color": "black",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "N/A"
   },
@@ -13,7 +13,7 @@
     "publish_date": "2020-10-10",
     "publisher": "Paifive",
     "color": "Blue",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "N/A"
   },
@@ -22,7 +22,7 @@
     "publish_date": "2001-12-11",
     "publisher": "Hbert",
     "color": "black",
-    "cover_state": false,
+    "cover_state": "false",
     "archived": false,
     "genre": "N/A"
   },
@@ -31,7 +31,7 @@
     "publish_date": "2018-08-23",
     "publisher": "Onoh",
     "color": "Red",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "N/A"
   },
@@ -40,7 +40,7 @@
     "publish_date": "2001-01-23",
     "publisher": "James",
     "color": "Green",
-    "cover_state": false,
+    "cover_state": "false",
     "archived": false,
     "genre": "N/A"
   },
@@ -49,7 +49,7 @@
     "publish_date": "2020-05-16",
     "publisher": "Jack",
     "color": "brown",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "N/A"
   },
@@ -58,7 +58,7 @@
     "publish_date": "2003-11-09",
     "publisher": "thomas",
     "color": "black",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "N/A"
   },
@@ -67,7 +67,7 @@
     "publish_date": "2000-01-12",
     "publisher": "De",
     "color": "yellow",
-    "cover_state": false,
+    "cover_state": "false",
     "archived": false,
     "genre": "N/A"
   },
@@ -76,7 +76,7 @@
     "publish_date": "2000-10-10",
     "publisher": "pub",
     "color": "red",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "drama"
   },
@@ -85,7 +85,7 @@
     "publish_date": "2001-02-23",
     "publisher": "Mee",
     "color": "white",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "Program"
   },
@@ -94,8 +94,35 @@
     "publish_date": "2002-12-16",
     "publisher": "Arrancar",
     "color": "black",
-    "cover_state": true,
+    "cover_state": "true",
     "archived": false,
     "genre": "Game"
+  },
+  {
+    "title": "Huil",
+    "publish_date": "2001-12-11",
+    "publisher": "Pul",
+    "color": "Red",
+    "cover_state": "true",
+    "archived": false,
+    "genre": "Force"
+  },
+  {
+    "title": "Nuts",
+    "publish_date": "2001-01-01",
+    "publisher": "Rigg",
+    "color": "Red",
+    "cover_state": "Good",
+    "archived": false,
+    "genre": "Action"
+  },
+  {
+    "title": "Rund",
+    "publish_date": "2003-12-10",
+    "publisher": "Mappa",
+    "color": "Red",
+    "cover_state": "Bad",
+    "archived": false,
+    "genre": "Tale"
   }
 ]

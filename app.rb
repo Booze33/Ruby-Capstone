@@ -4,6 +4,7 @@ require_relative 'Method/label'
 require_relative 'Options/music_albums_options'
 require_relative 'Options/item_attributes_data'
 require_relative 'Options/game_option'
+require 'colorize'
 
 class App
   def initialize(main)
@@ -26,7 +27,8 @@ class App
   def list_books
     puts 'List of Books:'
     @book_options.books.each do |book|
-      puts "Title: #{book.title}, Published Date: #{book.publish_date}, Archived: #{book.archived}"
+      puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},
+        COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
     end
   end
 

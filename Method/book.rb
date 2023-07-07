@@ -10,7 +10,7 @@ class Book < Item
     @title = title
     @publisher = publisher
     @color = color
-    @cover_state = cover_state
+    @cover_state = cover_state.to_s
     @can_be_archived = can_be_archived?
     @labels = []
   end
