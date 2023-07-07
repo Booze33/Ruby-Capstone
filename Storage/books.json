@@ -133,5 +133,14 @@
     "cover_state": "Good",
     "archived": false,
     "genre": "Music"
+  },
+  {
+    "title": "tyl",
+    "publish_date": "2003-12-23",
+    "publisher": "ruth",
+    "color": "red",
+    "cover_state": "bad",
+    "archived": false,
+    "genre": "drama"
   }
 ]

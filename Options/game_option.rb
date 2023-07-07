@@ -93,7 +93,7 @@ end
 
 def retrieve_authors
   if File.exist?('Storage/author.json')
-    author_data = JSON.parse(File.read('Storage/author.json'))
+    JSON.parse(File.read('Storage/author.json'))
   else
     []
   end
