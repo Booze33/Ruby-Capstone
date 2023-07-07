@@ -27,7 +27,8 @@ class App
   def list_books
     puts 'List of Books:'
     @book_options.books.each do |book|
-      puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},  COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
+      puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},
+        COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
     end
   end
 
