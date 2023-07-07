@@ -6,10 +6,9 @@ require 'json'
 class MusicAlbumOptions
   attr_accessor :music_albums, :genres, :labels
 
-  def initialize(item_attributes_data, storage, genres)
+  def initialize(_item_attributes_data, storage, genres)
     @music_albums = []
     @genres = genres
- #   @genres = item_attributes_data.genres
     @storage = storage
     @labels = storage.load_labels || []
   end

@@ -75,4 +75,4 @@ end
 
 genres = []
 
-storage = Storage.new(genres)
+Storage.new(genres)

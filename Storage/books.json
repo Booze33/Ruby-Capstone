@@ -88,5 +88,14 @@
     "cover_state": true,
     "archived": false,
     "genre": "Program"
+  },
+  {
+    "title": "red",
+    "publish_date": "2002-12-16",
+    "publisher": "Arrancar",
+    "color": "black",
+    "cover_state": true,
+    "archived": false,
+    "genre": "Game"
   }
 ]
