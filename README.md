@@ -81,7 +81,7 @@ bundle install
 ```
 
 ```sh
-gem install colorized
+gem install colorize
 ```
 
 ### Usage
