@@ -71,7 +71,7 @@ In order to run this project you need:
   cd my-folder
   https://github.com/Booze33/Ruby-Capstone.git
 ```
-
+Run `gem install colorize`
 ### Install
 
 This project does not require additional dependencies, just Ruby interpreter. However, it uses RuboCop as a linter and you should set it up as well.
