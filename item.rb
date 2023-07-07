@@ -3,7 +3,7 @@ require_relative 'Method/genre'
 require_relative 'Method/label'
 
 class Item
-  attr_accessor :id, :author, :source, :label, :publish_date, :archived
+  attr_accessor :id, :author, :genre, :source, :label, :publish_date, :archived
 
   def initialize(publish_date)
     @id = Random.rand(1..1000)
@@ -25,7 +25,29 @@ class Item
   end
 
   def genre=(genre)
-    @genre = genre
-    genre.items.push(self) unless genre.items.include?(self)
+    if genre.is_a?(Genre)
+      @genre = genre
+      genre.items << self
+    else
+      puts 'Invalid genre'
+    end
+  end
+
+  def label=(label)
+    if label.is_a?(Label)
+      @label = label
+      label.items << self
+    else
+      puts 'Invalid label'
+    end
+  end
+
+  def author=(author)
+    if author.is_a?(Author)
+      @author
+      author.items << self
+    else
+      puts 'Invalid author'
+    end
   end
 end
