@@ -3,7 +3,7 @@ require 'json'
 require 'date'
 
 class Book < Item
-  attr_accessor :publisher, :cover_state, :title, :color, :labels
+  attr_accessor :publisher, :cover_state, :title, :color, :labels, :genre
 
   def initialize(publish_date, title, publisher, color, cover_state)
     super(publish_date)

@@ -25,5 +25,23 @@
     "cover_state": false,
     "archived": false,
     "genre": "N/A"
+  },
+  {
+    "title": "Christian",
+    "publish_date": "2018-08-23",
+    "publisher": "Onoh",
+    "color": "Red",
+    "cover_state": true,
+    "archived": false,
+    "genre": "N/A"
+  },
+  {
+    "title": "Tree hold",
+    "publish_date": "2001-01-23",
+    "publisher": "James",
+    "color": "Green",
+    "cover_state": false,
+    "archived": false,
+    "genre": "N/A"
   }
 ]

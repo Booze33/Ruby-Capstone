@@ -3,6 +3,10 @@ require_relative 'Method/book'
 require_relative 'Method/label'
 
 class Storage
+  def initialize(genres)
+    @genres = genres
+  end
+
   def save_books(books)
     book_data = books.map do |book|
       genre_name = book.genre ? book.genre.name : 'N/A'
@@ -36,8 +40,11 @@ class Storage
       json_data = JSON.parse(File.read('Storage/books.json'))
       json_data.map do |data|
         publish_date = data['publish_date'] ? Date.parse(data['publish_date']) : nil
+        genre_name = data['genre']
+        genre = @genres.find { |genre| genre.name == genre_name }
         book = Book.new(publish_date, data['title'], data['publisher'], data['color'], data['cover_state'])
         book.archived = data['archived']
+        book.genre = genre
         book
       end
     else
@@ -65,3 +72,7 @@ class Storage
     end
   end
 end
+
+genres = []
+
+storage = Storage.new(genres)

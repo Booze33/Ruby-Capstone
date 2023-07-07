@@ -8,14 +8,15 @@ require_relative 'Options/game_option'
 class App
   def initialize(main)
     @main = main
-    @storage = Storage.new
+    @genres = []
+    @storage = Storage.new(@genres)
     @book_options = BookOptions.new(@storage)
     @labels = @storage.load_labels
     @item_attributes_data = ItemAttributesData.new
     @games = []
     @authors = []
     retrieve_data
-    @music_albums = MusicAlbumOptions.new(@item_attributes_data, @storage)
+    @music_albums = MusicAlbumOptions.new(@item_attributes_data, @storage, @genres)
   end
 
   def load_music_albums
