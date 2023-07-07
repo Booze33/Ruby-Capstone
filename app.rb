@@ -1,43 +1,39 @@
-require_relative 'storage'
 require_relative 'Options/book_option'
-require_relative 'Method/label'
 require_relative 'Options/music_albums_options'
-require_relative 'Options/item_attributes_data'
 require_relative 'Options/game_option'
 require 'colorize'
 
 class App
   def initialize(main)
     @main = main
-    @genres = []
-    @storage = Storage.new(@genres)
-    @book_options = BookOptions.new(@storage)
-    @labels = @storage.load_labels
-    @item_attributes_data = ItemAttributesData.new
+    @books = []
+    @albums = []
     @games = []
-    @authors = []
-    retrieve_data
-    @music_albums = MusicAlbumOptions.new(@item_attributes_data, @storage, @genres)
+    @music_albums = MusicAlbumOptions.new(@albums)
   end
 
   def load_music_albums
-    @music_albums.load_music_albums
+    @albums.load_music_albums
   end
 
-  def list_books
-    puts 'List of Books:'
-    @book_options.books.each do |book|
-      puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},
-        COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
-    end
-  end
+  # def list_books
+  #   puts 'List of Books:'
+  #   @book_options.books.each do |book|
+  #     puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},
+  #       COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
+  #   end
+  # end
 
   def list_labels
-    labels = @storage.load_labels
-    puts 'List of Labels:'
-    labels.each do |label|
-      puts "Title: #{label.title}, Color: #{label.color}"
+  if @albums.empty?
+    puts 'No genres added yet'
+  else
+    puts 'Listing all labels'
+    @albums.each do |label|
+      puts "Name: #{label.label.title}"
     end
+  end
+  @main.display_menu
   end
 
   def add_book
@@ -46,18 +42,17 @@ class App
   end
 
   def list_music_albums
-    @music_albums.list_music_albums
+    @music_albums.list_music_albums(@albums)
     @main.display_menu
   end
 
   def list_genres
-    puts 'Listing all genres:'
-    genres = (@genres + @book_options.books.map { |book| book.genre&.name }).compact.uniq
-    genres.each do |genre|
-      if genre.is_a?(String)
-        puts genre
-      else
-        puts genre.name || 'N/A'
+    if @albums.empty?
+      puts 'No genres added yet'
+    else
+      puts 'Listing all genres'
+      @albums.each do |genre|
+        puts "Name: #{genre.genre.name}"
       end
     end
     @main.display_menu
@@ -70,8 +65,7 @@ class App
 
   def quit
     puts 'Bye!'
-    @music_albums.save_music_albums
-    @storage.save_books(@book_options.books)
+    p @albums
     exit
   end
 
@@ -118,16 +112,15 @@ class App
   end
 
   def list_authors
-    puts ''
-    if @authors.empty?
-      puts 'No record for authors found'
+    if @albums.empty?
+      puts 'No authors added yet'
     else
-      puts 'List of all Authors:'
-      @authors.each_with_index do |author, _index|
-        puts "Author's Name: #{author['first_name']} #{author['last_name']}"
+      puts 'Listing all authors'
+      @albums.each do |author|
+        puts "Name: #{author.author.first_name} #{author.author.last_name}"
       end
     end
-    retrieve_data
+    @main.display_menu
   end
 
   def preserve_game(game)

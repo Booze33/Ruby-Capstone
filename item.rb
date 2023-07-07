@@ -3,7 +3,7 @@ require_relative 'Method/genre'
 require_relative 'Method/label'
 
 class Item
-  attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
+  attr_accessor :id, :author, :source, :label, :publish_date, :archived
 
   def initialize(publish_date)
     @id = Random.rand(1..1000)
@@ -22,5 +22,10 @@ class Item
     else
       puts 'Item cannot be archived'
     end
+  end
+
+  def genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
   end
 end

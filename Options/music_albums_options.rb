@@ -1,37 +1,24 @@
 require_relative '../Method/genre'
-require_relative '../Method/music_album'
+require_relative '../Method/author'
 require_relative '../Method/label'
+require_relative '../Method/music_album'
 require 'json'
 
 class MusicAlbumOptions
-  attr_accessor :music_albums, :genres, :labels
+  attr_accessor :albums
 
-  def initialize(_item_attributes_data, storage, genres)
-    @music_albums = []
-    @genres = genres
-    @storage = storage
-    @labels = storage.load_labels || []
+  def initialize(albums)
+    @albums = albums
   end
 
-  def list_music_albums
-    if @music_albums.empty?
+  def list_music_albums(albums)
+    if albums.empty?
       puts 'No music albums added yet'
     else
       puts 'Listing all music albums'
-      @music_albums.each do |album|
+      albums.each do |album|
         puts "Name: #{album.label.title} / Genre #{album.genre.name}
         Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
-      end
-    end
-  end
-
-  def list_genres
-    if @genres.empty?
-      puts 'No genres added yet'
-    else
-      puts 'Listing all genres'
-      @genres.each do |genre|
-        puts genre.name
       end
     end
   end
@@ -39,29 +26,38 @@ class MusicAlbumOptions
   def add_music_album
     puts 'Add a music album'
     puts 'Please enter the genre of the album'
-    album_genre_name = gets.chomp
-    album_genre = @genres.find { |genre| genre.name == album_genre_name }
-    album_genre ||= Genre.new(album_genre_name)
-    @genres << album_genre
+    genre_name = gets.chomp
+    genre = Genre.new(genre_name)
+
+    puts 'Enter the album author first name'
+    author_first_name = gets.chomp
+    puts 'Enter the album author last name'
+    author_last_name = gets.chomp
+    author = Author.new(author_first_name, author_last_name)
+    
     puts 'Enter the album title'
     label_title = gets.chomp
     puts 'Enter the label color'
     label_color = gets.chomp
-    album_label = Label.new(Random.rand(1..1000), label_title, label_color)
-    @labels << album_label
-    @storage.save_labels(@labels)
+    label = Label.new(Random.rand(1..1000), label_title, label_color)
+
     puts 'Date of publishing: year-month-day [2020-01-01]'
-    album_date_of_publishing = gets.chomp
+    date_of_publishing = gets.chomp
     puts 'Is the album on Spotify? [y/n]'
     album_on_spotify = gets.chomp
     album_on_spotify = album_on_spotify.upcase == 'Y'
-    album = MusicAlbum.new(album_date_of_publishing, album_on_spotify)
+    album = MusicAlbum.new(date_of_publishing, album_on_spotify)
+
     puts 'Album added!'
-    album_genre.add_item(album)
-    album_label.add_item(album)
-    @music_albums << album
+    
+    genre.add_item(album)
+    author.add_item(album)
+    label.add_item(album)
+    @albums << album
   end
 
+
+  
   def save_music_albums
     albums_data = []
     @music_albums.each do |album|

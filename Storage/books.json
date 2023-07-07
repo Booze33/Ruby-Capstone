@@ -124,5 +124,14 @@
     "cover_state": "Bad",
     "archived": false,
     "genre": "Tale"
+  },
+  {
+    "title": "Come on title",
+    "publish_date": "2020-10-10",
+    "publisher": "Paidos",
+    "color": "White",
+    "cover_state": "good",
+    "archived": false,
+    "genre": "Drama novel"
   }
 ]

@@ -1,6 +1,3 @@
-require_relative '../item'
-require 'json'
-
 class Label
   attr_accessor :id, :title, :color, :items
 
