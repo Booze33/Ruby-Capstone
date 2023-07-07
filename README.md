@@ -25,7 +25,7 @@
   - [🤝 Contributing ](#-contributing-)
   - [📝 License ](#-license-)
 
-# 📖 TDD Project <a name="about-project">TDD Project</a>
+# 📖 Ruby Capstone <a name="about-project">Ruby Capstone</a>
 
 **Ruby-Capstone**
 
