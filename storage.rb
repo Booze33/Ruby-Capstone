@@ -41,7 +41,7 @@ class Storage
       json_data.map do |data|
         publish_date = data['publish_date'] ? Date.parse(data['publish_date']) : nil
         genre_name = data['genre']
-        genre = @genres.find { |genre| genre.name == genre_name }
+        genre = genre_name ? Genre.new(genre_name) : nil
         book = Book.new(publish_date, data['title'], data['publisher'], data['color'], data['cover_state'])
         book.archived = data['archived']
         book.genre = genre

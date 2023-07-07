@@ -49,7 +49,15 @@ class App
   end
 
   def list_genres
-    @music_albums.list_genres
+    puts 'Listing all genres:'
+    genres = (@genres + @book_options.books.map { |book| book.genre&.name }).compact.uniq
+    genres.each do |genre|
+      if genre.is_a?(String)
+        puts genre
+      else
+        puts genre.name || 'N/A'
+      end
+    end
     @main.display_menu
   end
 
