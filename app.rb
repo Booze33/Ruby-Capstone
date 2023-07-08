@@ -63,7 +63,7 @@ class App
       end
     end
   end
-  
+
   def list_authors
     if @albums.empty? and @books.empty? and @games.empty?
       puts 'No authors added yet'
@@ -99,11 +99,15 @@ class App
 
   def quit
     puts 'Bye!'
+    @music_albums.save_music_albums
+    @book_options.save_books
+    @game_options.save_games
     exit
   end
 
   def load_data
-    @albums.load_music_albums
-    @main.display_menu
+    @music_albums.load_music_albums
+    @book_options.load_books
+    @game_options.load_games
   end
 end

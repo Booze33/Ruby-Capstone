@@ -19,7 +19,8 @@ class MusicAlbumOptions
       albums.each do |album|
         puts '......................................................'
         puts "NAME #{album.label.title} | AUTHOR #{album.author.first_name} #{album.author.last_name}"
-        puts "GENRE #{album.genre.name} | COLOR #{album.label.color} | ON SPOTIFY #{album.on_spotify} | PUBLISH DATE #{album.publish_date}"
+        puts "GENRE #{album.genre.name} | COLOR #{album.label.color} | ON SPOTIFY #{album.on_spotify}"
+        puts "PUBLISH DATE #{album.publish_date}"
         puts '......................................................'
         puts ''
       end
@@ -37,7 +38,7 @@ class MusicAlbumOptions
     puts 'Enter the album author last name'
     author_last_name = gets.chomp
     author = Author.new(author_first_name, author_last_name)
-    
+
     puts 'Enter the album title'
     label_title = gets.chomp
     puts 'Enter the label color'
@@ -52,7 +53,7 @@ class MusicAlbumOptions
     album = MusicAlbum.new(date_of_publishing, album_on_spotify)
 
     puts 'Album added!'
-    
+
     genre.add_item(album)
     author.add_item(album)
     label.add_item(album)
@@ -61,13 +62,15 @@ class MusicAlbumOptions
 
   def save_music_albums
     albums_data = []
-    @music_albums.each do |album|
+    @albums.each do |album|
       albums_data.push(
         publish_date: album.publish_date,
-        on_spotify: album.on_spotify,
         genre: album.genre.name,
         label_title: album.label.title,
-        label_color: album.label.color
+        label_color: album.label.color,
+        author_first_name: album.author.first_name,
+        author_last_name: album.author.last_name,
+        on_spotify: album.on_spotify
       )
     end
     File.write('Storage/music_albums.json', albums_data.to_json)
@@ -80,11 +83,12 @@ class MusicAlbumOptions
     albums_data.each do |album_data|
       album_genre = Genre.new(album_data['genre'])
       album_label = Label.new(Random.rand(1..1000), album_data['label_title'], album_data['label_color'])
+      album_author = Author.new(album_data['author_first_name'], album_data['author_last_name'])
       album = MusicAlbum.new(album_data['publish_date'], album_data['on_spotify'])
       album_genre.add_item(album)
       album_label.add_item(album)
-      @music_albums << album
-      @genres << album_genre
+      album_author.add_item(album)
+      @albums << album
     end
   end
 end

@@ -4,6 +4,7 @@ class Main
   def initialize
     @app = App.new(self)
     puts 'Welcome to the Catalog App'
+    @app.load_data
     display_menu
   end
 

@@ -22,7 +22,7 @@ class GameOptions
     puts 'Enter the game author last name'
     author_last_name = gets.chomp
     author = Author.new(author_first_name, author_last_name)
-    
+
     puts 'Enter the game title'
     label_title = gets.chomp
     puts 'Enter the label color'
@@ -60,6 +60,39 @@ class GameOptions
         puts '......................................................'
         puts ''
       end
+    end
+  end
+
+  def save_games
+    games_data = []
+    @games.each do |game|
+      games_data.push(
+        publish_date: game.publish_date,
+        genre: game.genre.name,
+        label_title: game.label.title,
+        label_color: game.label.color,
+        author_first_name: game.author.first_name,
+        author_last_name: game.author.last_name,
+        multiplayer: game.multiplayer,
+        last_played_at: game.last_played_at
+      )
+    end
+    File.write('Storage/game.json', games_data.to_json)
+  end
+
+  def load_games
+    return unless File.exist?('Storage/game.json')
+
+    games_data = JSON.parse(File.read('Storage/game.json'))
+    games_data.each do |game_data|
+      game_genre = Genre.new(game_data['genre'])
+      game_label = Label.new(Random.rand(1..1000), game_data['label_title'], game_data['label_color'])
+      game_author = Author.new(game_data['author_first_name'], game_data['author_last_name'])
+      game = Game.new(game_data['multiplayer'], game_data['last_played_at'], game_data['publish_date'])
+      game_genre.add_item(game)
+      game_label.add_item(game)
+      game_author.add_item(game)
+      @games << game
     end
   end
 end
