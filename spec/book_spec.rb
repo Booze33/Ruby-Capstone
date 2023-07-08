@@ -2,43 +2,42 @@ require_relative '../item'
 require_relative '../Method/book'
 require 'date'
 
-RSpec.describe Book do
+describe Book do
+  let(:publish_date) { Date.new(2010, 1, 1) }
+  let(:publisher) { 'Example Publisher' }
+  let(:cover_state) { 'Good' }
+
+  subject(:book) { described_class.new(publish_date, publisher, cover_state) }
+
   describe '#initialize' do
-    it 'initializes the book object with the given attributes' do
-      publish_date = Date.new(2000, 1, 1)
-      title = 'Test Book'
-      publisher = 'Test Publisher'
-      color = 'blue'
-      cover_state = 'good'
-
-      book = Book.new(publish_date, title, publisher, color, cover_state)
-
+    it 'sets the publish_date, publisher, and cover_state' do
       expect(book.publish_date).to eq(publish_date)
-      expect(book.title).to eq(title)
       expect(book.publisher).to eq(publisher)
-      expect(book.color).to eq(color)
-      expect(book.cover_state).to eq(cover_state)
-      expect(book.labels).to be_empty
+      expect(book.cover_state).to eq('Good')
     end
   end
-end
 
-RSpec.describe Book do
   describe '#can_be_archived?' do
-    context 'when the publish date is more than 10 years ago' do
-      it 'returns true' do
-        publish_date = Date.new(2010, 1, 1)
-        book = Book.new(publish_date, 'Test Book', 'Test Publisher', 'blue', 'good')
+    context 'when publish_date is nil' do
+      let(:publish_date) { nil }
 
+      it 'returns false' do
+        expect(book.can_be_archived?).to be false
+      end
+    end
+
+    context 'when publish_date is more than 10 years ago' do
+      let(:publish_date) { Date.new(Time.now.year - 11, 1, 1) }
+
+      it 'returns true' do
         expect(book.can_be_archived?).to be true
       end
     end
 
-    context 'when the publish date is less than 10 years ago' do
-      it 'returns false' do
-        publish_date = Date.today
-        book = Book.new(publish_date, 'Test Book', 'Test Publisher', 'blue', 'good')
+    context 'when publish_date is less than 10 years ago' do
+      let(:publish_date) { Date.new(Time.now.year - 9, 1, 1) }
 
+      it 'returns false' do
         expect(book.can_be_archived?).to be false
       end
     end
