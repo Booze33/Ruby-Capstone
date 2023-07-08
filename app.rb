@@ -10,35 +10,36 @@ class App
     @albums = []
     @games = []
     @music_albums = MusicAlbumOptions.new(@albums)
+    @book_options = BookOptions.new(@books)
   end
 
   def load_music_albums
     @albums.load_music_albums
+    @main.display_menu
   end
 
-  # def list_books
-  #   puts 'List of Books:'
-  #   @book_options.books.each do |book|
-  #     puts "TITLE: #{book.title.colorize(:red)},  PUBLISHED-DATE: #{book.publish_date},  ARCHIVED: #{book.archived},
-  #       COLOR: #{book.color},  COVER-STATE: #{book.cover_state},  PUBLISHER: #{book.publisher}"
-  #   end
-  # end
+  def list_books
+    @book_options.list_books(@books)
+    @main.display_menu
+  end
 
   def list_labels
-  if @albums.empty?
-    puts 'No genres added yet'
-  else
-    puts 'Listing all labels'
-    @albums.each do |label|
-      puts "Name: #{label.label.title}"
+    if @albums.empty? and @books.empty?
+      puts 'No genres added yet'
+    else
+      puts 'Listing all labels'
+      @albums.each do |label|
+        puts "Name: #{label.label.title}"
+      end
+      @books.each do |label|
+        puts "Name: #{label.label.title}"
+      end
     end
-  end
-  @main.display_menu
   end
 
   def add_book
     @book_options.add_book
-    @book_options.books.last.update_labels(@labels)
+    @main.display_menu
   end
 
   def list_music_albums
@@ -66,6 +67,7 @@ class App
   def quit
     puts 'Bye!'
     p @albums
+    p @books
     exit
   end
 

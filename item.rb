@@ -1,6 +1,7 @@
 require 'date'
 require_relative 'Method/genre'
 require_relative 'Method/label'
+require_relative 'Method/author'
 
 class Item
   attr_accessor :id, :author, :genre, :source, :label, :publish_date, :archived
@@ -42,12 +43,12 @@ class Item
     end
   end
 
-  def author=(author)
-    if author.is_a?(Author)
-      @author
-      author.items << self
-    else
-      puts 'Invalid author'
-    end
-  end
+  # def author=(author)
+  #   if author.is_a?(Author)
+  #     @author
+  #     author.items << self
+  #   else
+  #     puts 'Invalid author'
+  #   end
+  # end
 end

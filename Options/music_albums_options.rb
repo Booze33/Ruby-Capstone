@@ -17,7 +17,7 @@ class MusicAlbumOptions
     else
       puts 'Listing all music albums'
       albums.each do |album|
-        puts "Name: #{album.label.title} / Genre #{album.genre.name}
+        puts "Name: #{album.author.first_name} #{album.author.last_name} Name: #{album.label.title} / Genre #{album.genre.name}
         Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
       end
     end
@@ -54,6 +54,8 @@ class MusicAlbumOptions
     author.add_item(album)
     label.add_item(album)
     @albums << album
+    p author
+    p album
   end
 
 
