@@ -53,7 +53,8 @@ class GameOptions
       puts 'List of all Games:'
       games.each do |game|
         puts '......................................................'
-        puts "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
+        puts "NAME #{game.label.title} | AUTHOR #{game.author.first_name} #{game.author.last_name}"
+        puts "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'} | GENRE #{game.genre.name} | COLOR #{game.label.color}"
         puts "Last Played Date: #{game.last_played_at}"
         puts "Publish Date: #{game.publish_date}"
         puts '......................................................'
