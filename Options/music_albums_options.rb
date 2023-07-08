@@ -54,12 +54,8 @@ class MusicAlbumOptions
     author.add_item(album)
     label.add_item(album)
     @albums << album
-    p author
-    p album
   end
 
-
-  
   def save_music_albums
     albums_data = []
     @music_albums.each do |album|

@@ -11,6 +11,7 @@ class App
     @games = []
     @music_albums = MusicAlbumOptions.new(@albums)
     @book_options = BookOptions.new(@books)
+    @game_options = GameOptions.new(@games)
   end
 
   def load_music_albums
@@ -68,49 +69,18 @@ class App
     puts 'Bye!'
     p @albums
     p @books
+    p @games
     exit
   end
 
   def add_game
-    puts ''
-    print 'Please enter author\'s first_name: '
-    first_name = gets.chomp
-    print 'Please enter author\'s last_name: '
-    last_name = gets.chomp
-    print 'Are multiplayers option available? (Y/N): '
-    multiplayer_game = gets.chomp.downcase == 'y'
-    print 'Please enter last_played_date (DD/MM/YYYY): '
-    last_played_date = gets.chomp
-    print 'Please enter game_published_date (DD/MM/YYYY): '
-    released_date = gets.chomp
-    game = Game.new(multiplayer_game, last_played_date, released_date)
-    author = Author.new(first_name, last_name)
-    author.add_item(game)
-    @games << { 'id' => game.id, 'multiplayer_game' => game.multiplayer, 'last_played_date' => game.last_played_at,
-                'released_date' => game.publish_date }
-    @authors << { 'first_name' => game.author.first_name, 'last_name' => game.author.last_name }
-    puts "\nSuccessfully added new game"
-    preserve_game(@games)
-    preserve_author(@authors)
+    @game_options.add_game
+    @main.display_menu
   end
 
   def list_games
-    puts ''
-    if @games.empty?
-      puts 'No record for game found'
-    else
-      puts 'List of all Games:'
-      @games.each do |game|
-        puts '......................................................'
-        puts "Game_ID: #{game['id']}"
-        puts "Multiplayer: #{game['multiplayer_game'] ? 'Yes' : 'No'}"
-        puts "Last Played Date: #{game['last_played_date']}"
-        puts "Publish Date: #{game['released_date']}"
-        puts '......................................................'
-        puts ''
-      end
-    end
-    retrieve_data
+    @game_options.list_games(@games)
+    @main.display_menu
   end
 
   def list_authors
@@ -123,40 +93,5 @@ class App
       end
     end
     @main.display_menu
-  end
-
-  def preserve_game(game)
-    File.write('Storage/game.json', JSON.generate(game))
-  end
-
-  def preserve_author(author)
-    File.write('Storage/author.json', JSON.generate(author))
-  end
-
-  def retrieve_data
-    retrieve_game
-    retrieve_author
-  end
-
-  def retrieve_game
-    return unless File.exist?('Storage/game.json')
-
-    @games = File.empty?('./Storage/game.json') ? [] : JSON.parse(File.read('Storage/game.json'))
-  end
-
-  def retrieve_author
-    return unless File.exist?('Storage/author.json')
-
-    @authors = File.empty?('./Storage/author.json') ? [] : JSON.parse(File.read('Storage/author.json'))
-  end
-
-  def to_json(param)
-    {
-      'id' => param.id,
-      'multiplayer' => param.multiplayer,
-      'last_played_at' => param.last_played_at,
-      'publish_date' => param.publish_date,
-      'archived' => param.archived
-    }
   end
 end
