@@ -17,8 +17,11 @@ class MusicAlbumOptions
     else
       puts 'Listing all music albums'
       albums.each do |album|
-        puts "Name: #{album.author.first_name} #{album.author.last_name} Name: #{album.label.title} / Genre #{album.genre.name}
-        Date of publishing: #{album.publish_date} / On Spotify: #{album.on_spotify}"
+        puts '......................................................'
+        puts "NAME #{album.label.title} | AUTHOR #{album.author.first_name} #{album.author.last_name}"
+        puts "GENRE #{album.genre.name} | COLOR #{album.label.color} | ON SPOTIFY #{album.on_spotify} | PUBLISH DATE #{album.publish_date}"
+        puts '......................................................'
+        puts ''
       end
     end
   end

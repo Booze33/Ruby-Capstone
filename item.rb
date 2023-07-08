@@ -43,12 +43,8 @@ class Item
     end
   end
 
-  # def author=(author)
-  #   if author.is_a?(Author)
-  #     @author
-  #     author.items << self
-  #   else
-  #     puts 'Invalid author'
-  #   end
-  # end
+  def author=(author)
+    @author = author
+    author.items.push(self) unless author.items.include?(self)
+  end
 end

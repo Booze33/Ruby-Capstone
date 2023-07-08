@@ -14,7 +14,12 @@ class BookOptions
   def list_books(books)
     puts 'List of Books:'
     books.each do |book|
-      puts "AUTHOR #{book.author.last_name}"
+      puts '......................................................'
+      puts "NAME #{book.label.title} | AUTHOR #{book.author.first_name} #{book.author.last_name}"
+      puts "PUBLISHER #{book.publisher} | PUBLISH DATE #{book.publish_date}"
+      puts "GENRE #{book.genre.name} | COLOR #{book.label.color}"
+      puts '......................................................'
+      puts ''
     end
     
   end
@@ -46,9 +51,6 @@ class BookOptions
     puts 'Enter Book Publisher:'
     publisher = gets.chomp
 
-    puts 'Enter Book Color:'
-    color = gets.chomp
-
     book = Book.new(publish_date, publisher, cover_state)
 
     puts 'Book Added Successfully!'
@@ -57,5 +59,6 @@ class BookOptions
     author.add_item(book)
     label.add_item(book)
     @books << book
+    p book
   end
 end
